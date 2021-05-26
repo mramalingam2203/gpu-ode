@@ -2,11 +2,29 @@ include("Funcs.jl")
 
 
 #Parameters common to all units (known)
-r::Float64;delta::Float64; lambda::Float64;v::Float64;etaA::Float64;
-etaP::Float64;kappaH::Float64;kappaL::Float64;ksiH::Float64;ksiL::Float64;
-mu::Float64;alpha::Float64;sigmaP::Float64;sigmaA::Float64;rho::Float64;
-chiA::Float64;chiP::Float64;theta::Float64;gamma::Float64;phiH::Float64
-;phiL::Float64;lH::Float64;;lL::Float64;;
+r::Float64
+delta::Float64
+lambda::Float64
+v::Float64
+etaA::Float64
+etaP::Float64
+kappaH::Float64
+kappaL::Float64
+ksiH::Float64
+ksiL::Float64
+mu::Float64
+alpha::Float64
+sigmaP::Float64
+sigmaA::Float64
+rho::Float64
+chiA::Float64
+chiP::Float64
+theta::Float64
+gamma::Float64
+phiH::Float64
+phiL::Float64
+lH::Float64
+lL::Float64
 
 
 #Parameters common to all units (known)
@@ -36,6 +54,7 @@ sigmaA = 0.1280;
 rho =  -0.0370;
 chiA =  -0.0077;
 chiP = 0.2017;
+
 
 k_g = [mu, alpha, sigmaP, sigmaA, rho, chiA, chiP];
 
