@@ -14,9 +14,9 @@ function parameters(k, ksi, k_g, Kappa_g)
     paramsL = params(k[1],k[2],k[4],k_g[3],k_g[4],Kappa_g[1],k[3],Kappa_g[6],Kappa_g[2],Kappa_g[4],
         exp(k[8]) * ksi[2],k[5],k[6],k_g[6],k_g[7],k_g[5],k_g[2] - sigmaA * etaA * chiA,k_g[1] - sigmaP * etaP * chiP)
     
-    println(paramsL)
-    println(paramsH)
-    println()
+    #println(paramsL)
+    #println(paramsH)
+    #println()
     
     return [paramsL paramsH]
 end
@@ -28,13 +28,16 @@ function boundarySol(k, ksi, k_g, Kappa_g, x0)
     # from the boundary conditions.
       
     parms =parameters(k, ksi, k_g, Kappa_g);
-   
-    A = [-1 0 0 0 0; 1 -1 0 0 0; 0 0 -1 0 0; 0 1 -1 0 0;
-        0 0 1 -1 0; 0 0 0 1 -1];
+    
+    A = [-1 0 0 0 0; 1 -1 0 0 0; 0 0 -1 0 0; 0 1 -1 0 0; 0 0 1 -1 0; 0 0 0 1 -1];
+
     b = [0.01 0.01 0.01 0.01 0.01 0.01];
     
-    x -> x^2 + 2x - 1
-    fun = x -> sysODE(x, params1, params2)
+    sysODE(parameters(k, ksi, k_g, Kappa_g))
+    #fun = sysODE(x, params1, params2)
+    f = x->x+1
+    k = [1,2,3,4, 5,10]
+    print(map(fun,[1,2,3,4,5,10]))
    # fun = sysODE(parms[1], parms[2]);
 
     #options = optimoptions('patternsearch','Cache','on',...
@@ -48,31 +51,32 @@ function boundarySol(k, ksi, k_g, Kappa_g, x0)
 end
 
 
-
-function sysODE(paramsH, paramsL)
+function sysODE(parmets)
     # Computes the cost function based on how well the solution for given
     # boundaries sastifies the boundary conditions
-    
-    #d = f_solver(paramsH, paramsL, x)
+    #f_solver(parmets,1);
+
     #d =[1,2, 3, 4, 5]
-    F = [0.0,0.0,0.0,0.0,0.0]
+    #=F = [0.0,0.0,0.0,0.0,0.0]
     
     F[1] = d[1] - (1 + paramsH.gamma)
     F[2] = d[2] - (1 + paramsH.gamma)
     F[3] = d[3] - (1 + paramsL.gamma)
     F[4] = d[4] - 1
     F[5] = d[5] - 1
-    #Cost = sum(F.^2)^(1 / 2)
-    return nothing
+    #Cost = sum(F.^2)^(1 / 2)=#
+    return 1
 end
 
 #boundarySol -> sysODE -> f_solver -> two_ode         
 
 
-function d = f_solver(paramsH, paramsL, p)
+function f_solver(parmets, p)
     # This function provides the values of the first derivatives at
     # boundaries in each state s = H, L, for given boundaries in p
-    
+    #print(parmets)
+    #=
+
     ode = @(c, f, region) twoode(c, f, region, paramsH, paramsL)
     
     f_init = [1 1 1 1]
@@ -89,10 +93,10 @@ function d = f_solver(paramsH, paramsL, p)
     d[3] = y[4 4] # m_L (return point for state L)
     d[4] = y[2 5] # x_uH (upper boundary for state H)
     d[5] = y[4 6] # x_uL (upper boundary for state L)
-
+=#
 end
 
-
+#=
 function twobc(yl, yr, p, paramsH, paramsL)
     # Boundary conditions 
 
@@ -176,3 +180,4 @@ function dfdc = twoode(c, f, region, paramsH, paramsL)
     #return dfdc
 end
             
+=#
