@@ -14,18 +14,8 @@ function parameters(k, ksi, k_g, Kappa_g)
     paramsL = params(k[1],k[2],k[4],k_g[3],k_g[4],Kappa_g[1],k[3],Kappa_g[6],Kappa_g[2],Kappa_g[4],
         exp(k[8]) * ksi[2],k[5],k[6],k_g[6],k_g[7],k_g[5],k_g[2] - sigmaA * etaA * chiA,k_g[1] - sigmaP * etaP * chiP)
 
-    # println(paramsL)
-    # println(paramsH)
+    f_solver(paramsH, paramsL)
 
-    yl = rand([0.0, 1.0], 4, 5);
-    yr = rand([0.0, 1.0], 4, 5);
-    p = rand([0.0, 1.0], 1, 5);
-    twobc(yl, yr, p, paramsH, paramsL)
-
-    c = 0.01929;
-    region = 1
-    f= rand(Float64, (1, 4))
-    twoode(c, f, region, paramsH, paramsL)
     return [paramsL paramsH]
 end
 
@@ -41,6 +31,31 @@ function boundarySol(k, ksi, k_g, Kappa_g, x0)
     b = [0.01 0.01 0.01 0.01 0.01 0.01];
     #sysODE(parameters(k, ksi, k_g, Kappa_g))
     return nothing
+end
+
+function f_solver(paramsH, paramsL)
+    # This function provides the values of the first derivatives at
+    # boundaries in each state s = H, L, for given boundaries in p
+    yl = rand([0.0, 1.0], 4, 5);
+    yr = rand([0.0, 1.0], 4, 5);
+    p = rand([0.0, 1.0], 1, 5);
+    #   twobc(yl, yr, p, paramsH, paramsL)
+
+    c = 0.01929;
+    region = 1
+    f= rand(Float64, (1, 4))
+
+    ode = twoode(c, f, region, paramsL, paramsH);
+    f_init = [1 1 1 1];
+    x_init = [0 p[1] p[1] p[2] p[2] p[3] p[3] p[4] p[4] p[5]];
+    #solinit = bvpinit(x_init, f_init);
+    bc = twobc(yl, yr, p, paramsH, paramsL);
+    #sol = bvp4c(ode, bc, solinit);
+    #x = [0 p(1) p(2) p(3) p(4) p(5)];
+    #y = deval(sol, x);
+    #d = y;
+
+    return nothing;
 end
 
 
@@ -114,7 +129,6 @@ function twoode(c, f, region, paramsH, paramsL)
 
     return dfdc
 end
-
 
 #=
 fun = sysODE(parms[1], parms[2]);
