@@ -1,4 +1,4 @@
-include("Funcs.jl")                
+include("Funcs.jl")
 
 # Parameters(Float64) = 0.0 ;
 #=Parameters common to all units (known)
@@ -29,7 +29,7 @@ lL::Float64
 
 #Parameters common to all units (known)
 r = Float32(0.05);
-delta = Float32(0.15); 
+delta = Float32(0.15);
 lambda = Float32(0.015);
 v = Float32(0.15);
 etaA = Float32(-0.1);
@@ -69,13 +69,11 @@ lL = Float32(0.4);
 Kappa_g = [theta, gamma, phiH, phiL, lH, lL];
 
 
-# Initial guess for the unknown boundaries 
+# Initial guess for the unknown boundaries
 # x0 = [x_lH m_H m_L x_uH x_uL]
 
 x0 = [0.02 0.15 0.20 0.36 0.41];
 
-b = boundarySol(k, ksi, k_g, Kappa_g, x0);
+boundarySol(k, ksi, k_g, Kappa_g, x0);
 
-
-# Find boundary solutions 
-
+# Find boundary solutions
