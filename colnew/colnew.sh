@@ -6,7 +6,7 @@ cd temp
 #
 for FILE in `ls -1 *.f`;
 do
-  gfortran -c $FILE
+  gfortran -c -w $FILE
   if [ $? -ne 0 ]; then
     echo "Errors compiling " $FILE
     exit

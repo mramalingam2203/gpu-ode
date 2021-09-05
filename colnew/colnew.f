@@ -14,7 +14,7 @@ C----------------------------------------------------------------------
 C
       SUBROUTINE COLNEW (NCOMP, M, ALEFT, ARIGHT, ZETA, IPAR, LTOL,
      1                   TOL, FIXPNT, ISPACE, FSPACE, IFLAG,
-     2                   FSUB, DFSUB, GSUB, DGSUB, GUESS)
+     2                FSUB, DFSUB, GSUB, DGSUB, GUESS, paramsL,paramsH)
 
 c*********************************************************************72
 C
@@ -461,8 +461,9 @@ c
       IMPLICIT REAL*8 (A-H,O-Z)
 
       type params
-		real::r, delta, v, sigmaP, sigmaA, theta, lambda,l, gamma,phi, ksi, etaA, etaP,chiA, chiP, rho, alpha, mu
-	end type
+		real::r, delta, v, sigmaP, sigmaA, theta, lambda,l, gamma,phi 
+		real::ksi, etaA, etaP,chiA, chiP, rho, alpha, mu
+	  end type
 
 	type (params) :: paramsL,paramsH
 
@@ -485,7 +486,7 @@ C     this subroutine can be called either COLNEW or COLSYS
 C
       ENTRY      COLSYS (NCOMP, M, ALEFT, ARIGHT, ZETA, IPAR, LTOL,
      1                   TOL, FIXPNT, ISPACE, FSPACE, IFLAG,
-     2                   FSUB, DFSUB, GSUB, DGSUB, GUESS)
+     2                FSUB, DFSUB, GSUB, DGSUB, GUESS,paramsH,paramsL)
 C
 C*********************************************************************
 C

@@ -2,7 +2,8 @@
 #
 mkdir temp
 cd temp
-~/binc/f77split ../colnew.f
+~/binc/f90split ../colnew.f90
+
 #
 for FILE in `ls -1 *.f90`;
 do
@@ -12,13 +13,13 @@ do
     exit
   fi
 done
-rm *.f
+rm *.f90
 #
 ar qc libcolnew.a *.o
 rm *.o
 #
-mv libcolnew.a ~/libf77
+mv libcolnew.a ~/libf90
 cd ..
 rmdir temp
 #
-echo "Library installed as ~/libf77/libcolnew.a."
+echo "Library installed as ~/libf90/libcolnew.a."
