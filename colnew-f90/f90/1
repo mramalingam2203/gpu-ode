@@ -1,0 +1,185 @@
+appsln.f90:31:19:
+
+       is6 = Ispace(6)
+                   1
+Warning: Array reference at (1) is out of bounds (6 > 1) in dimension 1
+appsln.f90:33:25:
+
+       is4 = is5 + Ispace(4)*(Ispace(1)+1)
+                         1
+Warning: Array reference at (1) is out of bounds (4 > 1) in dimension 1
+appsln.f90:36:37:
+
+      &            Fspace(is4),Ispace(2),Ispace(3),Ispace(5),Ispace(8),  &
+                                     1
+Warning: Array reference at (1) is out of bounds (2 > 1) in dimension 1
+appsln.f90:36:47:
+
+      &            Fspace(is4),Ispace(2),Ispace(3),Ispace(5),Ispace(8),  &
+                                               1
+Warning: Array reference at (1) is out of bounds (3 > 1) in dimension 1
+appsln.f90:36:57:
+
+      &            Fspace(is4),Ispace(2),Ispace(3),Ispace(5),Ispace(8),  &
+                                                         1
+Warning: Array reference at (1) is out of bounds (5 > 1) in dimension 1
+appsln.f90:36:67:
+
+      &            Fspace(is4),Ispace(2),Ispace(3),Ispace(5),Ispace(8),  &
+                                                                   1
+Warning: Array reference at (1) is out of bounds (8 > 1) in dimension 1
+appsln.f90:37:25:
+
+      &            Ispace(4),2,dummy,0)
+                         1
+Warning: Array reference at (1) is out of bounds (4 > 1) in dimension 1
+colnew.f90:486:15:
+
+       STRUCTURE /PARAMS/
+               1
+Error: STRUCTURE at (1) is a DEC extension, enable with -fdec-structure
+colnew.f90:489:54:
+
+          REAL :: KSI , ETAA , ETAP , CHIA , CHIP , RHO , ALPHA , MU
+                                                      1
+Error: Symbol ‘rho’ at (1) already has basic type of REAL
+colnew.f90:490:9:
+
+       ENDSTRUCTURE
+         1
+Error: Expecting END SUBROUTINE statement at (1)
+colnew.f90:492:6:
+
+       RECORD /PARAMS/ ::Paramsl , Paramsh
+      1
+Error: RECORD at (1) is an extension, enable it with -fdec-structure
+colnew.f90:22:31:
+
+      &                  Paramsl,Paramsh)
+                               1
+Error: Symbol ‘paramsl’ at (1) has no IMPLICIT type
+colnew.f90:22:39:
+
+      &                  Paramsl,Paramsh)
+                                       1
+Error: Symbol ‘paramsh’ at (1) has no IMPLICIT type
+colnew.f90:530:16:
+
+       IF ( Ipar(7).LE.0 ) WRITE (6,99001)
+                1
+Warning: Array reference at (1) is out of bounds (7 > 1) in dimension 1
+colnew.f90:552:15:
+
+       K = Ipar(2)
+               1
+Warning: Array reference at (1) is out of bounds (2 > 1) in dimension 1
+colnew.f90:553:15:
+
+       N = Ipar(3)
+               1
+Warning: Array reference at (1) is out of bounds (3 > 1) in dimension 1
+colnew.f90:555:19:
+
+       iread = Ipar(8)
+                   1
+Warning: Array reference at (1) is out of bounds (8 > 1) in dimension 1
+colnew.f90:556:20:
+
+       IGUess = Ipar(9)
+                    1
+Warning: Array reference at (1) is out of bounds (9 > 1) in dimension 1
+colnew.f90:559:19:
+
+       ICAre = Ipar(10)
+                   1
+Warning: Array reference at (1) is out of bounds (10 > 1) in dimension 1
+colnew.f90:560:18:
+
+       NTOl = Ipar(4)
+                  1
+Warning: Array reference at (1) is out of bounds (4 > 1) in dimension 1
+colnew.f90:561:19:
+
+       ndimf = Ipar(5)
+                   1
+Warning: Array reference at (1) is out of bounds (5 > 1) in dimension 1
+colnew.f90:562:19:
+
+       ndimi = Ipar(6)
+                   1
+Warning: Array reference at (1) is out of bounds (6 > 1) in dimension 1
+colnew.f90:563:20:
+
+       nfxpnt = Ipar(11)
+                    1
+Warning: Array reference at (1) is out of bounds (11 > 1) in dimension 1
+colnew.f90:564:20:
+
+       IPRint = Ipar(7)
+                    1
+Warning: Array reference at (1) is out of bounds (7 > 1) in dimension 1
+colnew.f90:768:13:
+
+       Ispace(2) = K
+             1
+Warning: Array reference at (1) is out of bounds (2 > 1) in dimension 1
+colnew.f90:769:13:
+
+       Ispace(3) = Ncomp
+             1
+Warning: Array reference at (1) is out of bounds (3 > 1) in dimension 1
+colnew.f90:770:13:
+
+       Ispace(4) = MSTar
+             1
+Warning: Array reference at (1) is out of bounds (4 > 1) in dimension 1
+colnew.f90:771:13:
+
+       Ispace(5) = MMAx
+             1
+Warning: Array reference at (1) is out of bounds (5 > 1) in dimension 1
+colnew.f90:772:13:
+
+       Ispace(6) = NZ + NDMz + N + 2
+             1
+Warning: Array reference at (1) is out of bounds (6 > 1) in dimension 1
+colnew.f90:774:13:
+
+       Ispace(7) = Ispace(6) + k2 - 1
+             1
+Warning: Array reference at (1) is out of bounds (7 > 1) in dimension 1
+colnew.f90:774:25:
+
+       Ispace(7) = Ispace(6) + k2 - 1
+                         1
+Warning: Array reference at (1) is out of bounds (6 > 1) in dimension 1
+newmsh.f90:128:23:
+
+          hiold = Xiold(2) - Xiold(1)
+                       1
+Warning: Array reference at (1) is out of bounds (2 > 1) in dimension 1
+newmsh.f90:130:34:
+
+          hiold = Xiold(3) - Xiold(2)
+                                  1
+Warning: Array reference at (1) is out of bounds (2 > 1) in dimension 1
+newmsh.f90:130:23:
+
+          hiold = Xiold(3) - Xiold(2)
+                       1
+Warning: Array reference at (1) is out of bounds (3 > 1) in dimension 1
+newmsh.f90:134:30:
+
+          oneovh = 2.D0/(Xiold(3)-Xiold(1))
+                              1
+Warning: Array reference at (1) is out of bounds (3 > 1) in dimension 1
+newmsh.f90:141:34:
+
+          slphmx = Slope(1)*(Xiold(2)-Xiold(1))
+                                  1
+Warning: Array reference at (1) is out of bounds (2 > 1) in dimension 1
+newmsh.f90:142:15:
+
+          Accum(2) = slphmx
+               1
+Warning: Array reference at (1) is out of bounds (2 > 1) in dimension 1

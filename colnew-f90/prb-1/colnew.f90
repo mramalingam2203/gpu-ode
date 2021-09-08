@@ -1,7 +1,7 @@
+module colnewy
+	contains
 
-!module colnewmod
-!	contains
-!*==COLNEW.spg  processed by SPAG 6.72Dc at 02:59 on  3 Sep 2021
+!*==COLNEW.spg  processed by SPAG 6.72Dc at 03:32 on  8 Sep 2021
 !  this package solves boundary value problems for
 !  ordinary differential equations, as described below.
 !
@@ -17,7 +17,7 @@
 !----------------------------------------------------------------------
 !
       SUBROUTINE COLNEW(Ncomp,M,Aleft,Aright,Zeta,Ipar,Ltol,Tol,Fixpnt, &
-                      & Ispace,Fspace,Iflag,FSUB,DFSUB,GSUB,DGSUB,GUESS)
+     &                  Ispace,Fspace,Iflag,FSUB,DFSUB,GSUB,DGSUB,GUESS)
  
 !*********************************************************************72
 !
@@ -465,32 +465,32 @@
 !*--COLNEW463
 !*** Start of declarations inserted by SPAG
       REAL*8 Aleft , Aright , COEf , DFSUB , DGSUB , dummy , Fixpnt ,   &
-           & Fspace , FSUB , GSUB , GUESS , PREcis , precp1 , RHO ,     &
-           & ROOt , TLEft , Tol , TOLin , TRIght , TTL
+     &       Fspace , FSUB , GSUB , GUESS , PREcis , precp1 , RHO ,     &
+     &       ROOt , TLEft , Tol , TOLin , TRIght , TTL
       REAL*8 TZEta , WGTerr , WGTmsh , Zeta
       INTEGER i , ib , ic , ICAre , idmz , IDUm , Iflag , IGUess ,      &
-            & IOUt , ip , Ipar , IPRint , iread , Ispace , ITEr ,       &
-            & IZEta , JTOl , K , k2 , KD
+     &        IOUt , ip , Ipar , IPRint , iread , Ispace , ITEr ,       &
+     &        IZEta , JTOl , K , k2 , KD
       INTEGER laccum , ldeldz , ldelz , ldmz , ldqdmz , ldqz , ldscl ,  &
-            & lg , LIMit , linteg , lpvtg , lpvtw , lrhs , lscl ,       &
-            & lslope , Ltol , LTTol , lv , lvalst , lw
+     &        lg , LIMit , linteg , lpvtg , lpvtw , lrhs , lscl ,       &
+     &        lslope , Ltol , LTTol , lv , lvalst , lw
       INTEGER lxi , lxiold , lz , M , MMAx , MSHalt , MSHflg , MSHlmt , &
-            & MSHnum , MSTar , MT , N , NC , Ncomp , ndimf , ndimi ,    &
-            & NDMz , nfixf , nfixi , nfxpnt
+     &        MSHnum , MSTar , MT , N , NC , Ncomp , ndimf , ndimi ,    &
+     &        NDMz , nfixf , nfixi , nfxpnt
       INTEGER NMAx , nmaxf , nmaxi , NOLd , NONlin , np1 , nrec ,       &
-            & nsizef , nsizei , NTOl , NZ
+     &        nsizef , nsizei , NTOl , NZ
 !*** End of declarations inserted by SPAG
  
-      ! STRUCTURE /PARAMS/
-      !    REAL :: R , DELTA , V , SIGMAP , SIGMAA , THETA , LAMBDA , L , &
-      !          & GAMMA , PHI
-      !    REAL :: KSI , ETAA , ETAP , CHIA , CHIP , RHO , ALPHA , MU
-      ! ENDSTRUCTURE
+!      STRUCTURE /PARAMS/
+!         REAL :: R , DELTA , V , SIGMAP , SIGMAA , THETA , LAMBDA , L , &
+!     &           GAMMA , PHI
+!         REAL :: KSI , ETAA , ETAP , CHIA , CHIP , RHO , ALPHA , MU
+!      END STRUCTURE
  
-      ! RECORD /PARAMS/ ::Paramsl , Paramsh
+!      RECORD /PARAMS/ ::Paramsl , Paramsh
  
       DIMENSION M(1) , Zeta(1) , Ipar(1) , Ltol(1) , Tol(1) , dummy(1) ,&
-              & Fixpnt(1) , Ispace(1) , Fspace(1)
+     &          Fixpnt(1) , Ispace(1) , Fspace(1)
 !
       COMMON /COLOUT/ PREcis , IOUt , IPRint
       COMMON /COLLOC/ RHO(7) , COEf(49)
@@ -500,14 +500,14 @@
       COMMON /COLSID/ TZEta(40) , TLEft , TRIght , IZEta , IDUm
       COMMON /COLNLN/ NONlin , ITEr , LIMit , ICAre , IGUess
       COMMON /COLEST/ TTL(40) , WGTmsh(40) , WGTerr(40) , TOLin(40) ,   &
-                    & ROOt(40) , JTOl(40) , LTTol(40) , NTOl
+     &                ROOt(40) , JTOl(40) , LTTol(40) , NTOl
 !
       EXTERNAL FSUB , DFSUB , GSUB , DGSUB , GUESS
 !
 !     this subroutine can be called either COLNEW or COLSYS
 !
       ENTRY COLSYS(Ncomp,M,Aleft,Aright,Zeta,Ipar,Ltol,Tol,Fixpnt,      &
-                 & Ispace,Fspace,Iflag,FSUB,DFSUB,GSUB,DGSUB,GUESS)
+     &             Ispace,Fspace,Iflag,FSUB,DFSUB,GSUB,DGSUB,GUESS)
 !
 !*********************************************************************
 !
@@ -585,27 +585,27 @@
          IF ( NONlin.GT.0 ) THEN
             WRITE (IOUt,99002) Ncomp , (M(ip),ip=1,Ncomp)
 99002       FORMAT (///' THE NUMBER OF (NONLINEAR) DIFF EQNS IS ',I3/1X,&
-                   &'THEIR ORDERS ARE',20I3)
+     &              'THEIR ORDERS ARE',20I3)
          ELSE
             WRITE (IOUt,99003) Ncomp , (M(ip),ip=1,Ncomp)
 !
 99003       FORMAT (///' THE NUMBER OF (LINEAR) DIFF EQNS IS ',I3/1X,   &
-                   &'THEIR ORDERS ARE',20I3)
+     &              'THEIR ORDERS ARE',20I3)
          ENDIF
          WRITE (IOUt,99004) (Zeta(ip),ip=1,MSTar)
 99004    FORMAT (' SIDE CONDITION POINTS ZETA',8F10.6,4(/27X,8F10.6))
          IF ( nfxpnt.GT.0 ) WRITE (IOUt,99005) nfxpnt ,                 &
-                                 & (Fixpnt(ip),ip=1,nfxpnt)
+     &                             (Fixpnt(ip),ip=1,nfxpnt)
 99005    FORMAT (' THERE ARE',I5,' FIXED POINTS IN THE MESH -',         &
-               & 10(6F10.6/))
+     &           10(6F10.6/))
          WRITE (IOUt,99006) K
 99006    FORMAT (' NUMBER OF COLLOC PTS PER INTERVAL IS',I3)
          WRITE (IOUt,99007) (Ltol(ip),ip=1,NTOl)
 99007    FORMAT (' COMPONENTS OF Z REQUIRING TOLERANCES -',8(7X,I2,1X), &
-               & 4(/38X,8I10))
+     &           4(/38X,8I10))
          WRITE (IOUt,99008) (Tol(ip),ip=1,NTOl)
 99008    FORMAT (' CORRESPONDING ERROR TOLERANCES -',6X,8D10.2,         &
-               & 4(/39X,8D10.2))
+     &           4(/39X,8D10.2))
          IF ( IGUess.GE.2 ) WRITE (IOUt,99009)
 99009    FORMAT (' INITIAL MESH(ES) AND Z,DMZ PROVIDED BY USER')
          IF ( iread.EQ.2 ) WRITE (IOUt,99010)
@@ -626,7 +626,7 @@
       ip = 1
       DO i = 1 , MSTar
          IF ( DABS(Zeta(i)-Aleft).GE.PREcis .AND. DABS(Zeta(i)-Aright)  &
-            & .GE.PREcis ) THEN
+     &        .GE.PREcis ) THEN
  120        IF ( ip.GT.nfxpnt ) RETURN
             IF ( Zeta(i)-PREcis.GE.Fixpnt(ip) ) THEN
                ip = ip + 1
@@ -664,7 +664,7 @@
       nmaxi = (ndimi-nfixi)/nsizei
       IF ( IPRint.LT.1 ) WRITE (IOUt,99011) nmaxf , nmaxi
 99011 FORMAT (' THE MAXIMUM NUMBER OF SUBINTERVALS IS MIN (',I4,        &
-             &' (ALLOWED FROM FSPACE),',I4,' (ALLOWED FROM ISPACE) )')
+     &        ' (ALLOWED FROM FSPACE),',I4,' (ALLOWED FROM ISPACE) )')
       NMAx = MIN0(nmaxf,nmaxi)
       IF ( NMAx.LT.N ) RETURN
       IF ( NMAx.LT.nfxpnt+1 ) RETURN
@@ -727,7 +727,7 @@
 !
       CALL CONSTS(K,RHO,COEf)
       CALL NEWMSH(3+iread,Fspace(lxi),Fspace(lxiold),dummy,dummy,dummy, &
-                & dummy,dummy,nfxpnt,Fixpnt)
+     &            dummy,dummy,nfxpnt,Fixpnt)
 !
 !...  determine first approximation, if the problem is nonlinear.
 !
@@ -752,12 +752,12 @@
       ENDIF
       IF ( IGUess.GE.2 ) IGUess = 0
       CALL CONTRL(Fspace(lxi),Fspace(lxiold),Fspace(lz),Fspace(ldmz),   &
-                & Fspace(lrhs),Fspace(ldelz),Fspace(ldeldz),Fspace(ldqz)&
-                & ,Fspace(ldqdmz),Fspace(lg),Fspace(lw),Fspace(lv),     &
-                & Fspace(lvalst),Fspace(lslope),Fspace(lscl),           &
-                & Fspace(ldscl),Fspace(laccum),Ispace(lpvtg),           &
-                & Ispace(linteg),Ispace(lpvtw),nfxpnt,Fixpnt,Iflag,FSUB,&
-                & DFSUB,GSUB,DGSUB,GUESS)
+     &            Fspace(lrhs),Fspace(ldelz),Fspace(ldeldz),Fspace(ldqz)&
+     &            ,Fspace(ldqdmz),Fspace(lg),Fspace(lw),Fspace(lv),     &
+     &            Fspace(lvalst),Fspace(lslope),Fspace(lscl),           &
+     &            Fspace(ldscl),Fspace(laccum),Ispace(lpvtg),           &
+     &            Ispace(linteg),Ispace(lpvtw),nfxpnt,Fixpnt,Iflag,FSUB,&
+     &            DFSUB,GSUB,DGSUB,GUESS)
 !
 !...  prepare output
 !
@@ -785,3 +785,5 @@
       ENDDO
       RETURN
       END
+      
+end module colnewy

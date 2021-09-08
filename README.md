@@ -7,4 +7,5 @@ Function handles need be split as and when required
 
 
 ## Status
-Refactored the COLNEW library from F77 to F90
+-- Refactored the COLNEW library from F77 to F90
+-- Modularized COLNEW library 
